@@ -1,0 +1,33 @@
+{
+  "name": "{{Name}}",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.js",
+  "author": "{{AuthorName}} <{{AuthorEmail}}>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node -r esm -r dotenv/config src",
+    "dev": "nodemon -r esm -r dotenv/config src",
+    "code:check": "yarn code:lint; yarn code:format --check",
+    "code:clean": "yarn code:lint --fix; yarn code:format --write",
+    "code:lint": "eslint --ext .js,.jsx,.ts,.tsx \"src/\"",
+    "code:format": "prettier './src/**/**.{js,jsx,ts,tsx}'",
+    "code:check:rules": "eslint --print-config .eslintrc.js | eslint-config-prettier-check"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^9.0.1",
+    "@commitlint/config-conventional": "^9.0.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
+    "nodemon": "^2.0.4",
+    "poetic": "^1.5.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.1.4",
+    "winston": "^3.3.3"
+  }
+}
